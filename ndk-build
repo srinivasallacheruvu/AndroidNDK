@@ -1,0 +1,49 @@
+*********************************************** Java Class Path **************************************************************************************
+JAVA_HOME=/usr/lib/jvm/java-7-oracle
+JRE_HOME=/usr/lib/jvm/java-7-oracle/jre
+export JAVA_HOME
+PATH=$PATH:$JAVA_HOME/bin
+export PATH
+
+
+
+*********************************************** Android PATH *****************************************************************************************
+
+export PATH=${PATH}:/home/srinu/Desktop/android-sdk-linux/tools:/home/srinu/Desktop/android-sdk-linux/platform-tools:/home/srinu/Desktop/android-ndk-r8d
+
+ndk-build commands
+1) goto current directory from terminal : cd Desktop/workspace/Hellojni
+2) update the project to get build.xml  :  android update project -p . -s
+   android update project –p . –n hello-jni –t android-14 --subprojects 
+
+3) javah c header file generation : change the directory to <project-dir>\bin\classes
+                       javah -d /home/srinu/Desktop/workspace/MyProject/jni -cp /home/srinu/Desktop/android-sdk-linux/platforms/android-8/android.jar:. com.myproject.MyActivity
+
+ Android.mk file and Application.mk file
+ copy of .h file into .c file 
+
+ //  javah -d Hellojni.h -cp /home/srinu/Desktop/android-sdk-linux/platforms/android-8/android.jar:. com.example.hellojni.HelloJni
+        // generate header file in bin/classes folder
+ //  javah -cp /home/srinu/Desktop/android-sdk-linux/platforms/android-8/android.jar:. com.example.hellojni.HelloJni
+  
+4) ndk-build
+5) ant debug
+
+
+*********************************************** Linux Device Driver (lkmpg)  ************************************************************************
+
+http://www.linuxforu.com/2010/11/understanding-linux-device-drivers/
+https://www.youtube.com/watch?v=_EcDreXNpO8
+
+http://myembedded.tistory.com/category/Android?page=2
+
+the steps to be followed to develop and build kernel module:
+
+1) vi hello.c
+2) vi Makefile
+3) make
+4) sudo lsmod hello.ko
+5) sudo rmmod hello
+
+
+
